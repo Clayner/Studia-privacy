@@ -42,7 +42,7 @@
 </style>
 </head>
 <body>
-  <div class="eyebrow">Dernière mise à jour : 24 juillet 2026</div>
+  <div class="eyebrow">Dernière mise à jour : 4 août 2026</div>
   <h1>Politique de confidentialité — Studia</h1>
 
   <h2>Ce que Studia est</h2>
@@ -62,11 +62,20 @@
   source tierce.</p>
 
   <h2>Où sont stockées tes données</h2>
-  <p>Studia conserve une copie locale sur l'appareil pour un accès hors connexion :
-  les identifiants de connexion sont chiffrés dans le Keystore du téléphone
-  (expo-secure-store), le reste (notes, devoirs, emploi du temps…) dans une base
-  locale chiffrée par le système d'exploitation. Rien de tout cela ne quitte
-  l'appareil.</p>
+  <p>Studia conserve une copie locale sur l'appareil pour un accès hors connexion,
+  avec deux niveaux de protection distincts :</p>
+  <ul>
+    <li><strong>Identifiants de connexion</strong> (identifiant, jetons de session) :
+    chiffrés par l'application elle-même dans le Keystore du téléphone
+    (expo-secure-store).</li>
+    <li><strong>Données scolaires</strong> (notes, devoirs, emploi du temps, messages…) :
+    conservées dans une base locale et des fichiers de préférences situés dans
+    l'espace de stockage privé de l'application, auquel aucune autre application ne
+    peut accéder. Studia ne leur applique pas de chiffrement supplémentaire : ils
+    sont protégés par le chiffrement de l'appareil assuré par Android et par le
+    verrouillage de l'écran.</li>
+  </ul>
+  <p>Rien de tout cela ne quitte l'appareil.</p>
 
   <h2>Partage avec des tiers</h2>
   <p>Studia ne partage aucune donnée avec qui que ce soit. Il n'y a ni publicité, ni
