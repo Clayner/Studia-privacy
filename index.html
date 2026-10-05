@@ -42,24 +42,57 @@
 </style>
 </head>
 <body>
-  <div class="eyebrow">Dernière mise à jour : 4 août 2026</div>
+  <div class="eyebrow">Dernière mise à jour : 5 octobre 2026</div>
   <h1>Politique de confidentialité — Studia</h1>
 
   <h2>Ce que Studia est</h2>
   <p>Studia est une application non officielle qui affiche les données scolaires
   d'un élève (notes, devoirs, emploi du temps, vie scolaire, messagerie, cantine…)
-  en se connectant directement au compte EcoleDirecte de l'utilisateur. Studia n'est
-  ni développée, ni exploitée, ni affiliée, ni approuvée, ni sponsorisée par
-  EcoleDirecte ou toute entité qui lui est liée. Studia n'a aucun serveur : il
-  n'existe aucune infrastructure Studia par laquelle transitent ou sont stockées
-  les données de l'élève.</p>
+  en se connectant directement au compte EcoleDirecte ou Pronote de l'utilisateur,
+  qu'il s'agisse d'un compte élève ou d'un compte parent (un parent peut suivre
+  plusieurs enfants et lier à la fois un compte EcoleDirecte et un compte Pronote).
+  Studia n'est ni développée, ni exploitée, ni affiliée, ni approuvée, ni
+  sponsorisée par EcoleDirecte, Pronote, Index Éducation ou toute entité qui leur
+  est liée. Studia n'a aucun serveur : il n'existe aucune infrastructure Studia par
+  laquelle transitent ou sont stockées les données de l'élève.</p>
 
   <h2>Données consultées</h2>
-  <p>Studia lit uniquement les données que le service scolaire (EcoleDirecte)
-  renvoie déjà pour le compte connecté : identité, notes, devoirs,
-  emploi du temps, absences/retards, messages, solde et menus de cantine. Ces
-  données sont affichées telles quelles, jamais enrichies ni recoupées avec une
-  source tierce.</p>
+  <p>Studia lit uniquement les données que le service scolaire (EcoleDirecte ou
+  Pronote) renvoie déjà pour le compte connecté : identité, notes, devoirs,
+  emploi du temps, absences/retards, messages, solde et menus de cantine — pour
+  un compte parent, celles de chacun de ses enfants. Ces données sont affichées
+  telles quelles, jamais enrichies ni recoupées avec une source tierce. Les
+  moyennes affichées sont calculées par l'application sur l'appareil, à partir des
+  notes et coefficients reçus.</p>
+  <p>Certaines actions de l'utilisateur sont renvoyées au service scolaire, comme
+  le ferait son site officiel : cocher un devoir comme « fait », ou ouvrir un
+  message (qui est alors marqué comme lu chez le service scolaire).</p>
+
+  <h2>Connexions réseau de l'application</h2>
+  <p>Studia ne communique qu'avec les services suivants, directement depuis
+  l'appareil et en HTTPS :</p>
+  <ul>
+    <li><strong>EcoleDirecte</strong> (api.ecoledirecte.com) et, pour Pronote,
+    <strong>le serveur Pronote de ton établissement</strong> (hébergé par Index
+    Éducation ou par l'établissement) : pour la connexion et la lecture de tes données.
+    La page de connexion Pronote de l'établissement est affichée dans l'application ;
+    ton mot de passe est saisi sur cette page ; Studia ne le conserve pas et ne garde
+    qu'un jeton de connexion délivré par Pronote.</li>
+    <li><strong>Recherche d'établissement Pronote</strong> : lors de l'ajout d'un compte
+    Pronote, la ville ou le code postal que tu saisis est envoyé à l'API publique
+    geo.api.gouv.fr (État français), puis les coordonnées de la commune à l'annuaire
+    d'Index Éducation (index-education.com) pour lister les établissements proches.
+    Ni tes identifiants ni tes données scolaires ne sont envoyés à ces deux services.
+    Aucune localisation GPS de l'appareil n'est utilisée.</li>
+    <li><strong>Mises à jour de l'application</strong> (u.expo.dev, service Expo) :
+    l'application vérifie si une mise à jour est disponible. Cette requête ne contient
+    que la plateforme (Android), la version de l'application et l'adresse IP
+    inhérente à toute connexion — aucune donnée scolaire ni identifiant.</li>
+  </ul>
+  <p>Les notifications (nouvelles notes, nouveaux messages, absences) sont générées
+  localement sur l'appareil par une synchronisation en arrière-plan : aucun jeton de
+  notification n'est envoyé à un serveur. Les widgets de l'écran d'accueil lisent
+  uniquement la copie locale.</p>
 
   <h2>Où sont stockées tes données</h2>
   <p>Studia conserve une copie locale sur l'appareil pour un accès hors connexion,
@@ -68,23 +101,26 @@
     <li><strong>Identifiants de connexion</strong> (identifiant, jetons de session) :
     chiffrés par l'application elle-même dans le Keystore du téléphone
     (expo-secure-store).</li>
-    <li><strong>Données scolaires</strong> (notes, devoirs, emploi du temps, messages…) :
+    <li><strong>Données scolaires</strong> (notes, devoirs, emploi du temps, messages,
+    historique des années scolaires précédentes…) :
     conservées dans une base locale et des fichiers de préférences situés dans
     l'espace de stockage privé de l'application, auquel aucune autre application ne
     peut accéder. Studia ne leur applique pas de chiffrement supplémentaire : ils
     sont protégés par le chiffrement de l'appareil assuré par Android et par le
     verrouillage de l'écran.</li>
   </ul>
-  <p>Rien de tout cela ne quitte l'appareil.</p>
+  <p>Rien de tout cela n'est envoyé à Studia ni à un tiers : les seules sorties de
+  l'appareil sont les connexions décrites ci-dessus.</p>
 
   <h2>Partage avec des tiers</h2>
-  <p>Studia ne partage aucune donnée avec qui que ce soit. Il n'y a ni publicité, ni
-  traqueur, ni outil d'analyse d'usage, ni service de compte-rendu de plantage
-  intégré à l'application.</p>
+  <p>Studia ne partage aucune donnée scolaire avec qui que ce soit. Il n'y a ni
+  publicité, ni traqueur, ni outil d'analyse d'usage, ni service de compte-rendu de
+  plantage intégré à l'application. Les seuls services contactés sont ceux listés
+  dans « Connexions réseau de l'application ».</p>
 
   <h2>Utilisateurs mineurs</h2>
   <p>Studia est destinée à être utilisée par des élèves, dont certains sont
-  mineurs, dans le cadre d'un compte EcoleDirecte généralement créé par
+  mineurs, dans le cadre d'un compte EcoleDirecte ou Pronote généralement créé par
   l'établissement scolaire ou les parents/responsables légaux. Studia ne collecte,
   ne demande ni ne traite aucune donnée supplémentaire à celle déjà accessible via
   ce compte, et ne diffuse aucune publicité ciblée ni contenu tiers vers les
@@ -98,17 +134,17 @@
     <li><strong>Droit d'accès</strong> : les données affichées dans l'app sont
     directement consultables par l'utilisateur.</li>
     <li><strong>Droit de rectification</strong> : toute correction doit être
-    effectuée directement auprès d'EcoleDirecte, seule source de ces
-    données.</li>
+    effectuée directement auprès d'EcoleDirecte, de Pronote ou de l'établissement,
+    seules sources de ces données.</li>
     <li><strong>Droit à l'effacement</strong> : suppression immédiate en
     désinstallant l'application ou en vidant son stockage depuis les réglages du
     téléphone.</li>
     <li><strong>Droit à la portabilité</strong> : sans objet, Studia n'exportant
     ni ne transmettant aucune donnée à un tiers.</li>
   </ul>
-  <p>Pour toute question relative aux données conservées par EcoleDirecte lui-même
-  (au-delà de ce que Studia affiche), se référer à la politique de confidentialité
-  d'EcoleDirecte et exercer ses droits directement auprès d'eux.</p>
+  <p>Pour toute question relative aux données conservées par EcoleDirecte ou Pronote
+  eux-mêmes (au-delà de ce que Studia affiche), se référer à leur politique de
+  confidentialité et exercer ses droits directement auprès d'eux.</p>
 
   <h2>Ton contrôle sur tes données</h2>
   <p>Se déconnecter depuis l'onglet Profil supprime l'accès actif à un compte ; les
