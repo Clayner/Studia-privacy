@@ -42,7 +42,7 @@
 </style>
 </head>
 <body>
-  <div class="eyebrow">Dernière mise à jour : 5 octobre 2026</div>
+  <div class="eyebrow">Dernière mise à jour : 10 novembre 2026</div>
   <h1>Politique de confidentialité — Studia</h1>
 
   <h2>Ce que Studia est</h2>
@@ -85,9 +85,16 @@
     Ni tes identifiants ni tes données scolaires ne sont envoyés à ces deux services.
     Aucune localisation GPS de l'appareil n'est utilisée.</li>
     <li><strong>Mises à jour de l'application</strong> (u.expo.dev, service Expo) :
-    l'application vérifie si une mise à jour est disponible. Cette requête ne contient
-    que la plateforme (Android), la version de l'application et l'adresse IP
-    inhérente à toute connexion — aucune donnée scolaire ni identifiant.</li>
+    l'application vérifie si une mise à jour est disponible. Cette requête contient
+    la plateforme (Android ou iPhone), la version de l'application, <strong>un
+    identifiant aléatoire propre à l'installation</strong> (généré par Expo, sans lien
+    avec ton identité ni avec ton compte scolaire) et l'adresse IP inhérente à toute
+    connexion. Si une mise à jour échoue, le message d'erreur correspondant est aussi
+    transmis à Expo. Aucune donnée scolaire ni identifiant de compte n'est envoyé. Ces
+    informations sont traitées par Expo selon sa propre politique de confidentialité ;
+    pour demander leur effacement, écris-moi à l'adresse de contact ci-dessous en
+    indiquant la plateforme et la version de l'app, je transmettrai la demande à
+    Expo.</li>
   </ul>
   <p>Les notifications (nouvelles notes, nouveaux messages, absences) sont générées
   localement sur l'appareil par une synchronisation en arrière-plan : aucun jeton de
@@ -99,14 +106,15 @@
   avec deux niveaux de protection distincts :</p>
   <ul>
     <li><strong>Identifiants de connexion</strong> (identifiant, jetons de session) :
-    chiffrés par l'application elle-même dans le Keystore du téléphone
-    (expo-secure-store).</li>
+    chiffrés par le coffre sécurisé du téléphone (expo-secure-store) :
+    le Keystore sur Android, le trousseau (Keychain) sur iPhone, réservé à cet
+    appareil et jamais inclus dans les sauvegardes iCloud.</li>
     <li><strong>Données scolaires</strong> (notes, devoirs, emploi du temps, messages,
     historique des années scolaires précédentes…) :
     conservées dans une base locale et des fichiers de préférences situés dans
     l'espace de stockage privé de l'application, auquel aucune autre application ne
     peut accéder. Studia ne leur applique pas de chiffrement supplémentaire : ils
-    sont protégés par le chiffrement de l'appareil assuré par Android et par le
+    sont protégés par le chiffrement de l'appareil (Android ou iOS) et par le
     verrouillage de l'écran.</li>
   </ul>
   <p>Rien de tout cela n'est envoyé à Studia ni à un tiers : les seules sorties de
@@ -115,8 +123,9 @@
   <h2>Partage avec des tiers</h2>
   <p>Studia ne partage aucune donnée scolaire avec qui que ce soit. Il n'y a ni
   publicité, ni traqueur, ni outil d'analyse d'usage, ni service de compte-rendu de
-  plantage intégré à l'application. Les seuls services contactés sont ceux listés
-  dans « Connexions réseau de l'application ».</p>
+  plantage tiers. Le seul retour technique est celui du service de mises à jour
+  d'Expo (u.expo.dev), décrit dans « Connexions réseau de l'application ». Les seuls
+  services contactés sont ceux listés dans cette section.</p>
 
   <h2>Utilisateurs mineurs</h2>
   <p>Studia est destinée à être utilisée par des élèves, dont certains sont
@@ -137,8 +146,8 @@
     effectuée directement auprès d'EcoleDirecte, de Pronote ou de l'établissement,
     seules sources de ces données.</li>
     <li><strong>Droit à l'effacement</strong> : suppression immédiate en
-    désinstallant l'application ou en vidant son stockage depuis les réglages du
-    téléphone.</li>
+    se déconnectant (onglet Profil), en désinstallant l'application ou, sur Android,
+    en vidant son stockage depuis les réglages du téléphone.</li>
     <li><strong>Droit à la portabilité</strong> : sans objet, Studia n'exportant
     ni ne transmettant aucune donnée à un tiers.</li>
   </ul>
@@ -147,9 +156,11 @@
   confidentialité et exercer ses droits directement auprès d'eux.</p>
 
   <h2>Ton contrôle sur tes données</h2>
-  <p>Se déconnecter depuis l'onglet Profil supprime l'accès actif à un compte ; les
-  données déjà mises en cache localement peuvent être effacées en désinstallant
-  l'application, ou en vidant son stockage depuis les réglages Android.</p>
+  <p>Se déconnecter depuis l'onglet Profil supprime l'accès au compte et efface
+  ses identifiants du téléphone (le mot de passe éventuellement enregistré dans le
+  gestionnaire de mots de passe du téléphone n'est pas touché : c'est toi qui l'y as
+  mis). Les données scolaires mises en cache sont effacées en désinstallant
+  l'application ou, sur Android, en vidant son stockage depuis les réglages.</p>
 
   <h2>Modifications de cette politique</h2>
   <p>Cette politique peut être mise à jour, notamment pour refléter une évolution
